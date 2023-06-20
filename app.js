@@ -98,7 +98,6 @@ app.post("/register/", async (request, response) => {
       const hashedPassword = await bcrypt.hash(password, 10);
       const createUserQuery = `INSERT INTO user (username, password, name, gender) 
 VALUES('${username}', '${hashedPassword}', '${name}', '${gender}');`;
-      response.send("User created successfully");
       await db.run(createUserQuery);
       response.send("User created successfully");
     }
